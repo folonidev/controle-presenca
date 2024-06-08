@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizar Presença de Alunos</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Visualizar Presença de Alunos</h1>
+        </header>
+        <main>
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn">Filtrar</button>
+            </form>
+            <table id="attendance-table">
+                <thead>
+                    <tr>
+                        <th>Aluno</th>
+                        <th>Data</th>
+                        <th>Presente</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for registro in registros_presenca %}
+                    <tr>
+                        <td>{{ registro.aluno.nome }}</td>
+                        <td>{{ registro.data }}</td>
+                        <td class="{% if registro.presente %}presente{% else %}ausente{% endif %}">{% if registro.presente %}Sim{% else %}Não{% endif %}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+            <a href="{% url 'index' %}" class="btn">Voltar ao Inicio</a>
+        </main>
+    </div>
+</body>
+</html>

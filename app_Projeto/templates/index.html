@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Presença de Alunos</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Presença de Alunos</h1>
+            <a href="{% url 'lista_alunos' %}" class="btn">Gerenciar Alunos</a>
+        </header>
+        <main>
+            <table id="attendance-table">
+                <thead>
+                    <tr>
+                        <th>Nome do Aluno</th>
+                        <th>Presença</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for aluno, presente in presenca_alunos.items %}
+                    <tr>
+                        <td>{{ aluno.nome }}</td>
+                        <td>
+                            <span class="presence {% if presente %}presente{% else %}ausente{% endif %}" data-aluno-id="{{ aluno.id }}">
+                                {% if presente %}
+                                    Presente
+                                {% else %}
+                                    Ausente
+                                {% endif %}
+                            </span>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="{% url 'visualizar_presenca' %}" class="btn">Visualizar Presença de Alunos</a>
+        </main>
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+</body>
+</html>

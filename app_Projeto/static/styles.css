@@ -1,0 +1,105 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #000; /* Fundo preto */
+  color: #fff;
+  line-height: 1.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  background: #1e1e1e; /* Fundo escuro para contraste */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  max-width: 800px;
+  width: 100%;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 2em;
+  color: #fff;
+}
+
+header .btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #007BFF; /* Azul */
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s;
+}
+
+header .btn:hover {
+  background-color: #0056b3; /* Azul escuro ao passar o mouse */
+}
+
+form {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+table thead {
+  background-color: #333; /* Cabeçalho da tabela escuro */
+}
+
+table th, table td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+table th {
+  background-color: #007BFF; /* Cabeçalho azul */
+  color: #fff;
+}
+
+table tbody tr {
+  border-bottom: 1px solid #444;
+}
+
+table tbody tr:nth-child(even) {
+  background-color: #2a2a2a; /* Linhas pares com fundo cinza escuro */
+}
+
+table tbody tr:nth-child(odd) {
+  background-color: #1e1e1e; /* Linhas ímpares com fundo mais escuro */
+}
+
+.presence {
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  text-transform: none; /* Garante que o texto não seja transformado */
+  cursor: pointer; /* Altera o cursor para indicar que é clicável */
+}
+
+.presence.presente {
+  background-color: #28a745; /* Verde para presente */
+  color: #fff;
+}
+
+.presence.ausente {
+  background-color: #dc3545; /* Vermelho para ausente */
+  color: #fff;
+}
